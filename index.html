@@ -1,74 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Apresentação 3D</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Currículo</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+    }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    header {
+      text-align: center;
+      margin-top: 50px;
+      color: #333;
+    }
 
-        .content {
-            text-align: center;
-            margin-right: 50px; /* Espaçamento do cubo */
-        }
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #070707, #818181);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .cube {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: spin 10s infinite linear;
-        }
+    p {
+      font-size: 1.5rem;
+      color: #333;
+    }
 
-        .face {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-            line-height: 200px;
-        }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding-bottom: 50px; /* Espaçamento na parte inferior */
+    }
 
-        .front  { transform: translateZ(100px); }
-        .back   { transform: rotateY(180deg) translateZ(100px); }
-        .top    { transform: rotateX(90deg) translateZ(100px); }
-        .bottom { transform: rotateX(-90deg) translateZ(100px); }
-        .left   { transform: rotateY(-90deg) translateZ(100px); }
-        .right  { transform: rotateY(90deg) translateZ(100px); }
+    section {
+      margin-bottom: 30px;
+    }
 
-        @keyframes spin {
-            from { transform: rotateY(0); }
-            to { transform: rotateY(360deg); }
-        }
-    </style>
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #1a1d1b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: block;
+      margin: 0 auto 30px;
+    }
+
+    button:hover {
+      background-color: #020202;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('fundo2.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <h1>Bem-Vindo à Página de Apresentação 3D</h1>
-            <p>Aqui, vamos criar uma experiência única e moderna para apresentar nosso conteúdo.</p>
-        </div>
-        <div class="cube">
-            <div class="face front">Front</div>
-            <div class="face back">Back</div>
-            <div class="face top">Top</div>
-            <div class="face bottom">Bottom</div>
-            <div class="face left">Left</div>
-            <div class="face right">Right</div>
-        </div>
-    </div>
+  <header>
+    <h1>Editor de Currículo</h1>
+    <p>Crie seu currículo de forma fácil e rápida!</p>
+  </header>
+  
+  <div class="container">
+    <section id="personal-info">
+      <h2>Dados Pessoais</h2>
+      <div class="input-group">
+        <input type="text" id="inputNome" placeholder="Nome">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="input-group">
+        <input type="text" id="inputEndereco" placeholder="Endereço">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="input-group">
+        <input type="text" id="inputTelefone" placeholder="Telefone">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="input-group">
+        <input type="email" id="inputEmail" placeholder="E-mail">
+        <i class="fas fa-file-alt"></i>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experiência Profissional</h2>
+      <textarea id="inputExperiencia" placeholder="Experiência profissional"></textarea>
+    </section>
+
+    <section id="education">
+      <h2>Educação</h2>
+      <textarea id="inputEducacao" placeholder="Formação acadêmica"></textarea>
+    </section>
+
+    <section id="skills">
+      <h2>Habilidades</h2>
+      <textarea id="inputHabilidades" placeholder="Habilidades e competências"></textarea>
+    </section>
+
+    <button id="previewResumeBtn">Visualizar Currículo</button>
+  </div>
+
+  <div class="background"></div>
+
+  <script>
+    document.getElementById('previewResumeBtn').addEventListener('click', function() {
+      var personalInfo = '';
+      var nome = document.getElementById('inputNome').value.trim();
+      var endereco = document.getElementById('inputEndereco').value.trim();
+      var telefone = document.getElementById('inputTelefone').value.trim();
+      var email = document.getElementById('inputEmail').value.trim();
+      
+      if (nome !== '') personalInfo += 'Nome: ' + nome + '\n';
+      if (endereco !== '') personalInfo += 'Endereço: ' + endereco + '\n';
+      if (telefone !== '') personalInfo += 'Telefone: ' + telefone + '\n';
+      if (email !== '') personalInfo += 'E-mail: ' + email + '\n';
+
+      var experience = 'Experiência Profissional:\n' + document.getElementById('inputExperiencia').value + '\n';
+      var education = 'Educação:\n' + document.getElementById('inputEducacao').value + '\n';
+      var skills = 'Habilidades:\n' + document.getElementById('inputHabilidades').value;
+
+      var resumeContent = personalInfo + experience + education + skills;
+
+      var newWindow = window.open('', '_blank');
+      newWindow.document.write('<html><head><title>Curriculum Vitae</title></head><body>');
+      newWindow.document.write('<h1>Curriculum Vitae</h1>');
+      newWindow.document.write('<pre>' + resumeContent + '</pre>');
+      newWindow.document.write('</body></html>');
+      newWindow.document.close(); 
+    });
+  </script>
 </body>
 </html>
